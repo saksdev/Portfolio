@@ -1,0 +1,85 @@
+/* ─── DESIGN TOKENS ───────────────────────────────── */
+:root {
+    /* Backgrounds */
+    --bg: #050810;
+    --bg-2: #0a0e1a;
+    --bg-3: #0e1320;
+
+    /* Cards */
+    --card: #111827;
+    --card-2: #1a2235;
+
+    /* Borders */
+    --border: rgba(255, 255, 255, 0.07);
+    --border-h: rgba(255, 255, 255, 0.12);
+
+    /* Brand colours */
+    --purple: #7c3aed;
+    --purple-l: #a78bfa;
+    --cyan: #06b6d4;
+    --pink: #ec4899;
+    --green: #10b981;
+    --amber: #f59e0b;
+    --red: #ef4444;
+    --blue: #3b82f6;
+
+    /* Text */
+    --text: #e2e8f0;
+    --text-2: #94a3b8;
+    --text-3: #64748b;
+
+    /* Gradients */
+    --grad: linear-gradient(135deg, var(--purple), var(--cyan));
+    --grad: linear-gradient(135deg, var(--purple), var(--cyan));
+
+    /* Shadows / glows */
+    --shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+    --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.35);
+    --glow: 0 0 40px rgba(124, 58, 237, 0.35);
+    --glow: 0 0 40px rgba(124, 58, 237, 0.35);
+
+    /* Radius */
+    --radius: 16px;
+    --radius-sm: 8px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --t: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --t-fast: all 0.18s ease;
+    --t-slow: all 0.5s ease;
+
+    /* Layout */
+    --max-w: 1200px;
+    --nav-h: 70px;
+
+    /* Header tokens */
+    --header-bg: rgba(255, 255, 255, 0.04);
+    --header-border: rgba(255, 255, 255, 0.08);
+    --header-blur-bg: rgba(5, 8, 16, 0.80);
+    --header-link: rgba(226, 232, 240, 0.60);
+    --header-link-hover: #e2e8f0;
+}
+
+/* ── Light Theme ── */
+[data-theme='light'] {
+    --bg: #f4efe8;
+    --bg-2: #ebe3d8;
+    --bg-3: #e0d5c5;
+    --card: #faf7f2;
+    --card-2: #f3ede4;
+    --border: rgba(0, 0, 0, 0.08);
+    --border-h: rgba(0, 0, 0, 0.14);
+    --text: #0f172a;
+    --text-2: #475569;
+    --text-3: #94a3b8;
+    --shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+    --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --glow: 0 0 40px rgba(124, 58, 237, 0.18);
+
+    --header-bg: rgba(241, 245, 249, 0.55);
+    --header-border: rgba(0, 0, 0, 0.08);
+    --header-blur-bg: rgba(241, 245, 249, 0.92);
+    --header-link: rgba(15, 23, 42, 0.60);
+    --header-link-hover: #0f172a;
+}
