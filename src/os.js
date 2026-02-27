@@ -27,6 +27,11 @@ export function openWindow(id, { title, icon, width = 600, height = 480, content
     const vw = window.innerWidth
     const vh = window.innerHeight
 
+    // Auto-close other windows on mobile for better UX
+    if (vw < 769) {
+        Object.keys(openWindows).forEach(winId => closeWindow(winId))
+    }
+
     // Calculate center position with cascade
     const left = Math.max(20, (vw - width) / 2 + cascadeOffset)
     const top = Math.max(20, (vh - height) / 2 - 40 + cascadeOffset)
@@ -219,16 +224,8 @@ export function initMenuBar() {
         <div class="menubar__left">
             <span class="menubar__apple">&#9776;</span>
             <span class="menubar__app-name" id="menubar-app">Finder</span>
-            <div class="menubar__menus">
-                <span>File</span>
-                <span>Edit</span>
-                <span>View</span>
-                <span>Help</span>
-            </div>
         </div>
         <div class="menubar__right">
-            <span>📶</span>
-            <span>🔋</span>
             <span class="menubar__clock" id="menubar-clock"></span>
         </div>
     `
@@ -266,9 +263,13 @@ export function initDesktop(appRegistry) {
             <span class="desktop-icon__label">${app.title}</span>
         `
 
-        // Single click to select
+        // Single click to select (or open on mobile)
         btn.addEventListener('click', e => {
             e.stopPropagation()
+            if (window.innerWidth < 769) {
+                app.open()
+                return
+            }
             if (selectedIcon) selectedIcon.classList.remove('desktop-icon--selected')
             btn.classList.add('desktop-icon--selected')
             selectedIcon = btn
@@ -478,40 +479,40 @@ function searchAll(query) {
         })
     })
 
-    // Search projects
-    ;(PROJECTS || []).forEach(p => {
-        if (p.title.toLowerCase().includes(q) || (p.tags || []).some(t => t.toLowerCase().includes(q))) {
-            results.push({ icon: p.emoji, title: p.title, sub: (p.tags || []).join(', '), type: 'Project', action: 'open', id: 'projects' })
-        }
-    })
+        // Search projects
+        ; (PROJECTS || []).forEach(p => {
+            if (p.title.toLowerCase().includes(q) || (p.tags || []).some(t => t.toLowerCase().includes(q))) {
+                results.push({ icon: p.emoji, title: p.title, sub: (p.tags || []).join(', '), type: 'Project', action: 'open', id: 'projects' })
+            }
+        })
 
-    // Search experience
-    ;(EXPERIENCE || []).forEach(exp => {
-        if (exp.role.toLowerCase().includes(q) || exp.company.toLowerCase().includes(q)) {
-            results.push({ icon: '💼', title: exp.role, sub: exp.company, type: 'Exp', action: 'open', id: 'experience' })
-        }
-    })
+        // Search experience
+        ; (EXPERIENCE || []).forEach(exp => {
+            if (exp.role.toLowerCase().includes(q) || exp.company.toLowerCase().includes(q)) {
+                results.push({ icon: '💼', title: exp.role, sub: exp.company, type: 'Exp', action: 'open', id: 'experience' })
+            }
+        })
 
-    // Search education
-    ;(EDUCATION || []).forEach(edu => {
-        if (edu.degree.toLowerCase().includes(q) || edu.institution.toLowerCase().includes(q)) {
-            results.push({ icon: '🎓', title: edu.degree, sub: edu.institution, type: 'Edu', action: 'open', id: 'education' })
-        }
-    })
+        // Search education
+        ; (EDUCATION || []).forEach(edu => {
+            if (edu.degree.toLowerCase().includes(q) || edu.institution.toLowerCase().includes(q)) {
+                results.push({ icon: '🎓', title: edu.degree, sub: edu.institution, type: 'Edu', action: 'open', id: 'education' })
+            }
+        })
 
-    // Search certificates
-    ;(CERTIFICATES || []).forEach(c => {
-        if (c.title.toLowerCase().includes(q) || c.issuer.toLowerCase().includes(q)) {
-            results.push({ icon: '📜', title: c.title, sub: c.issuer, type: 'Cert', action: 'open', id: 'certificates' })
-        }
-    })
+        // Search certificates
+        ; (CERTIFICATES || []).forEach(c => {
+            if (c.title.toLowerCase().includes(q) || c.issuer.toLowerCase().includes(q)) {
+                results.push({ icon: '📜', title: c.title, sub: c.issuer, type: 'Cert', action: 'open', id: 'certificates' })
+            }
+        })
 
-    // Search contacts
-    ;(CONTACT_ITEMS || []).forEach(c => {
-        if (c.label.toLowerCase().includes(q) || (c.sub || '').toLowerCase().includes(q)) {
-            results.push({ icon: c.icon, title: c.label, sub: c.sub, type: 'Contact', action: 'open', id: 'contact' })
-        }
-    })
+        // Search contacts
+        ; (CONTACT_ITEMS || []).forEach(c => {
+            if (c.label.toLowerCase().includes(q) || (c.sub || '').toLowerCase().includes(q)) {
+                results.push({ icon: c.icon, title: c.label, sub: c.sub, type: 'Contact', action: 'open', id: 'contact' })
+            }
+        })
 
     // Deduplicate by title+type
     const seen = new Set()
