@@ -588,8 +588,8 @@ a:hover {
 }
 
 .window__btn {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -604,7 +604,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 13px;
   /* Make icons permanently visible instead of hover-only */
   opacity: 0.7;
   transition: opacity 0.15s;
@@ -622,8 +622,8 @@ a:hover {
 .window__btn--close::after {
   content: '✕';
   color: rgba(0, 0, 0, 0.5);
-  font-size: 11px;
-  inset: -1px 0 0 0;
+  font-size: 13px;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -636,8 +636,8 @@ a:hover {
 .window__btn--minimize::after {
   content: '−';
   color: rgba(0, 0, 0, 0.5);
-  font-size: 14px;
-  inset: -2px 0 0 0;
+  font-size: 18px;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -650,7 +650,8 @@ a:hover {
 .window__btn--maximize::after {
   content: '↗';
   color: rgba(0, 0, 0, 0.5);
-  font-size: 10px;
+  font-size: 13px;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
