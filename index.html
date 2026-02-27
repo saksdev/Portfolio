@@ -1,40 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="Saksham Sharma | Full Stack Developer & Problem Solver. Specializing in MERN stack and high-performance web applications." />
-  <title>Saksham Sharma | Portfolio</title>
+  <meta name="description" content="Saksham Sharma | Full Stack Developer Portfolio — Interactive Desktop OS Experience" />
+  <title>Saksham Sharma | Portfolio OS</title>
 
-  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://saksdev.github.io/Portfolio/" />
-  <meta property="og:title" content="Saksham Sharma | Full Stack Developer" />
-  <meta property="og:description"
-    content="Explore the portfolio of Saksham Sharma, a passionate Full Stack Developer focused on building clean, efficient, and user-centric solutions." />
-  <meta property="og:image" content="/social-preview.png" />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://saksdev.github.io/Portfolio/" />
-  <meta property="twitter:title" content="Saksham Sharma | Full Stack Developer" />
-  <meta property="twitter:description"
-    content="Explore the portfolio of Saksham Sharma, a passionate Full Stack Developer focused on building clean, efficient, and user-centric solutions." />
-  <meta property="twitter:image" content="/social-preview.png" />
+  <meta property="og:title" content="Saksham Sharma | Portfolio OS" />
+  <meta property="og:description" content="An interactive desktop-OS portfolio by Saksham Sharma — Full Stack Developer." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-</body>
+  <!-- Boot Screen -->
+  <div id="boot" class="boot">
+    <div class="boot__content">
+      <div class="boot__logo">S</div>
+      <div class="boot__name">SAKSHAM SHARMA</div>
+      <div class="boot__bar">
+        <div class="boot__progress" id="boot-progress"></div>
+      </div>
+      <div class="boot__hint">Loading Portfolio OS...</div>
+    </div>
+  </div>
 
+  <!-- Desktop Environment -->
+  <div id="desktop" class="desktop desktop--hidden">
+    <div id="menubar" class="menubar"></div>
+    <div id="desktop-icons" class="desktop-icons"></div>
+    <div id="windows" class="windows-layer"></div>
+    <div id="dock" class="dock"></div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
 </html>
