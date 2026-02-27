@@ -394,10 +394,10 @@ a:hover {
 }
 
 .dock__icon {
-  font-size: 2rem;
+  font-size: 2.5rem;
   line-height: 1;
-  width: 44px;
-  height: 44px;
+  width: 56px;
+  height: 56px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1911,9 +1911,9 @@ a:hover {
   }
 
   .dock__icon {
-    width: clamp(28px, 9vw, 42px);
-    height: clamp(28px, 9vw, 42px);
-    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    width: clamp(34px, 12vw, 52px);
+    height: clamp(34px, 12vw, 52px);
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
     border-radius: 12px;
   }
 
@@ -1925,8 +1925,8 @@ a:hover {
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    height: calc(100% - 65px) !important;
-    /* Give dock 65px of bottom spacing */
+    height: calc(100% - 80px) !important;
+    /* Give dock 80px of bottom spacing for larger icons */
     max-width: 100%;
     max-height: 100%;
     border-radius: var(--radius-sm);

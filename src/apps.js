@@ -243,7 +243,6 @@ const coding = makeApp({
                 if (data) {
                     target.className = 'coding-stats'
                     target.innerHTML = `<span class="coding-stat">${data.stars} Stars</span><span class="coding-stat">${data.repos} Repos</span><span class="coding-stat">${data.followers} Followers</span>`
-                    showNotification('GitHub Stats Loaded', `${data.repos} repos, ${data.stars} stars, ${data.followers} followers`)
                 } else target.textContent = 'Stats unavailable'
             })
         }
@@ -254,7 +253,6 @@ const coding = makeApp({
                 if (data) {
                     target.className = 'coding-stats'
                     target.innerHTML = `<span class="coding-stat">${data.totalSolved} Solved</span><span class="coding-stat">Rank #${data.ranking?.toLocaleString()}</span>`
-                    showNotification('LeetCode Stats Loaded', `${data.totalSolved} problems solved, rank #${data.ranking?.toLocaleString()}`)
                 } else target.textContent = 'Stats unavailable'
             })
         }
@@ -265,7 +263,6 @@ const coding = makeApp({
                 if (data) {
                     target.className = 'coding-stats'
                     target.innerHTML = `<span class="coding-stat">${data.rating} Rating</span><span class="coding-stat">${data.rank}</span><span class="coding-stat">${data.solvedCount} Solved</span>`
-                    showNotification('Codeforces Stats Loaded', `Rating ${data.rating}, ${data.solvedCount} solved`)
                 } else target.textContent = 'Stats unavailable'
             })
         }
