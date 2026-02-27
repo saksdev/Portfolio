@@ -394,10 +394,10 @@ a:hover {
 }
 
 .dock__icon {
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 1;
-  width: 56px;
-  height: 56px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -588,8 +588,8 @@ a:hover {
 }
 
 .window__btn {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -604,7 +604,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 7px;
+  font-size: 10px;
   /* Make icons permanently visible instead of hover-only */
   opacity: 0.7;
   transition: opacity 0.15s;
@@ -622,7 +622,7 @@ a:hover {
 .window__btn--close::after {
   content: '✕';
   color: rgba(0, 0, 0, 0.5);
-  font-size: 8px;
+  font-size: 11px;
   inset: -1px 0 0 0;
   display: flex;
   align-items: center;
@@ -636,7 +636,7 @@ a:hover {
 .window__btn--minimize::after {
   content: '−';
   color: rgba(0, 0, 0, 0.5);
-  font-size: 10px;
+  font-size: 14px;
   inset: -2px 0 0 0;
   display: flex;
   align-items: center;
@@ -650,7 +650,7 @@ a:hover {
 .window__btn--maximize::after {
   content: '↗';
   color: rgba(0, 0, 0, 0.5);
-  font-size: 7px;
+  font-size: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1967,9 +1967,8 @@ a:hover {
     width: 100%;
     height: auto;
     aspect-ratio: 1 / 1;
-    max-width: 48px;
-    /* Cap size so it doesn't get inappropriately large on tablets */
-    font-size: clamp(1.2rem, 5vw, 2.2rem);
+    max-width: 40px;
+    font-size: clamp(1rem, 4.5vw, 1.8rem);
     border-radius: 20%;
   }
 
