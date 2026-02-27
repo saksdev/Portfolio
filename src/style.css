@@ -1886,36 +1886,58 @@ a:hover {
   }
 
   .dock {
-    width: 100%;
-    padding: 0 4px;
+    width: 100vw;
+    padding: 0;
+    bottom: 0;
+    left: 0;
+    transform: none;
   }
 
   .dock__items {
-    padding: 3px 4px;
-    gap: 2px;
+    padding: 6px 12px;
+    gap: 12px;
     max-width: 100%;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 12px 12px 0 0;
+    /* Attach to bottom of phone */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.5);
+    /* Lift shadow */
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    scrollbar-width: none;
+    /* Hide scrollbar Firefox */
   }
 
+  .dock__items::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar WebKit */
+
   .dock__item {
-    padding: 2px;
+    padding: 0;
   }
 
   .dock__item:hover {
-    transform: scale(1.1) translateY(-2px);
+    transform: translateY(-4px);
   }
 
+  /* Less aggressive hover on mobile */
   .dock__icon {
-    width: clamp(28px, 9vw, 38px);
-    height: clamp(28px, 9vw, 38px);
-    font-size: clamp(1rem, 4.5vw, 1.4rem);
-    border-radius: 8px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.6rem;
+    border-radius: 12px;
     flex-shrink: 0;
   }
 
   .dock__sep {
-    height: clamp(24px, 7vw, 30px);
-    margin: 0 2px;
+    height: 32px;
+    margin: 0 4px;
+    flex-shrink: 0;
   }
 
   .window {
