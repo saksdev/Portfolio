@@ -1911,10 +1911,18 @@ a:hover {
   }
 
   .dock__icon {
-    width: clamp(34px, 12vw, 52px);
-    height: clamp(34px, 12vw, 52px);
-    font-size: clamp(1.5rem, 6vw, 2.2rem);
-    border-radius: 12px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    max-width: 48px;
+    /* Cap size so it doesn't get inappropriately large on tablets */
+    font-size: clamp(1.2rem, 5vw, 2.2rem);
+    border-radius: 20%;
+  }
+
+  /* Disable bounce animation on mobile */
+  .dock__item--bounce {
+    animation: none !important;
   }
 
   .dock__sep {
