@@ -27,7 +27,7 @@ export const CORE = {
 export const PERSONAL = {
     name: 'SAKSHAM SHARMA',
     shortName: 'Saksham',
-    tagline: 'Software Engineer | MERN & Frontend Developer',
+    tagline: 'MERN & Frontend Developer | Software Engineer',
 
     bio: [
         "Full-Stack Developer (MERN) skilled in JavaScript, React.js, Node.js, and MongoDB, with hands-on experience building RESTful APIs and production-grade web applications.",
@@ -186,10 +186,11 @@ export const PROJECT_FILTERS = [
 //    Empty array → section hidden. viewUrl: '' hides link.
 // ─────────────────────────────────────────────────────────────
 export const CERTIFICATES = [
-    { abbr: 'SE', col: '#10b981', title: 'Software Engineer Intern', issuer: 'Hoping Minds – Katina Skills', date: '2024', badge: '✅ Verified', gold: true, viewUrl: '#' },
-    { abbr: 'JS', col: '#f7df1e', title: 'JavaScript (Intermediate)', issuer: 'HackerRank', date: '2024', badge: '✅ Verified', gold: true, viewUrl: '#' },
-    { abbr: 'RE', col: '#61dafb', title: 'React (Basic)', issuer: 'HackerRank', date: '2024', badge: '✅ Verified', gold: true, viewUrl: '#' },
-    { abbr: 'SQ', col: '#e38c00', title: 'SQL (Basic)', issuer: 'HackerRank', date: '2024', badge: '✅ Verified', gold: true, viewUrl: '#' },
+    { abbr: 'SE', col: '#10b981', title: 'Software Engineer Intern', issuer: 'HackerRank', date: '2026', badge: '✅ Verified', gold: true, viewUrl: 'https://www.hackerrank.com/profile/SakshamSharmaDev' },
+    { abbr: 'JS', col: '#f7df1e', title: 'JavaScript (Intermediate)', issuer: 'HackerRank', date: '2026', badge: '✅ Verified', gold: true, viewUrl: 'https://www.hackerrank.com/profile/SakshamSharmaDev' },
+    { abbr: 'RE', col: '#61dafb', title: 'React (Basic)', issuer: 'HackerRank', date: '2025', badge: '✅ Verified', gold: true, viewUrl: 'https://www.hackerrank.com/profile/SakshamSharmaDev' },
+    { abbr: 'PY', col: '#3776ab', title: 'Python (Basic)', issuer: 'HackerRank', date: '2023', badge: '✅ Verified', gold: true, viewUrl: 'https://www.hackerrank.com/profile/SakshamSharmaDev' },
+    { abbr: 'SQ', col: '#e38c00', title: 'SQL (Basic)', issuer: 'HackerRank', date: '2026', badge: '✅ Verified', gold: true, viewUrl: 'https://www.hackerrank.com/profile/SakshamSharmaDev' },
 ]
 
 // ─────────────────────────────────────────────────────────────

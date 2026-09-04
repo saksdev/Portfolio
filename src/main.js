@@ -114,11 +114,47 @@ function renderEducation() {
 }
 
 function renderCertificates() {
-    return (CERTIFICATES || []).map((cert) => {
-        const title = isRealUrl(cert.viewUrl)
-            ? `<a href="${esc(cert.viewUrl)}" target="_blank" rel="noopener noreferrer">${esc(cert.title)}</a>`
-            : esc(cert.title)
-        return `<li><span>${title}</span><span>${esc(cert.issuer)} · ${esc(cert.date)}</span></li>`
+    if (!CERTIFICATES?.length) return ''
+
+    // Group certificates by issuer so shared issuers have only one verification link
+    const groups = {}
+    CERTIFICATES.forEach((cert) => {
+        const issuer = cert.issuer || 'Other'
+        if (!groups[issuer]) {
+            groups[issuer] = {
+                issuer,
+                viewUrl: isRealUrl(cert.viewUrl) ? cert.viewUrl : '',
+                items: [],
+            }
+        } else if (!groups[issuer].viewUrl && isRealUrl(cert.viewUrl)) {
+            groups[issuer].viewUrl = cert.viewUrl
+        }
+        groups[issuer].items.push(cert)
+    })
+
+    return Object.values(groups).map((group) => {
+        const verifyBtn = isRealUrl(group.viewUrl)
+            ? `<a class="cert__verify" href="${esc(group.viewUrl)}" target="_blank" rel="noopener noreferrer">Verify on ${esc(group.issuer)} ↗</a>`
+            : ''
+
+        const items = group.items.map((cert) => `
+            <li class="cert-item">
+                <span class="cert-item__title">${esc(cert.title)}</span>
+                <span class="cert-item__date">${esc(cert.date)}</span>
+            </li>
+        `).join('')
+
+        return `
+            <div class="cert-group">
+                <div class="cert-group__header">
+                    <span class="cert-group__issuer">${esc(group.issuer)}</span>
+                    ${verifyBtn}
+                </div>
+                <ul class="cert-group__list">
+                    ${items}
+                </ul>
+            </div>
+        `
     }).join('')
 }
 
@@ -168,7 +204,7 @@ function render() {
 
             <main id="top">
                 <header class="hero">
-                    <p class="eyebrow">Software Engineer · MERN · Frontend · ${esc(CORE.location)}</p>
+                    <p class="eyebrow">MERN · Frontend · Software Engineer · ${esc(CORE.location)}</p>
                     <h1>${esc(PERSONAL.name)}</h1>
                     <p class="lede">${esc(PERSONAL.tagline)}. I ship interfaces, APIs, and the glue between them — then keep going until the product actually works.</p>
                     <div class="hero__actions">
@@ -219,7 +255,7 @@ function render() {
                             ${CERTIFICATES?.length ? `
                                 <div class="certs">
                                     <h3>Certificates</h3>
-                                    <ul>${renderCertificates()}</ul>
+                                    ${renderCertificates()}
                                 </div>` : ''}
                         </div>
                     </div>

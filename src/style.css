@@ -508,27 +508,82 @@ h2 {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.85rem;
 }
 
-.certs ul {
+.cert-group + .cert-group {
+  margin-top: 1.4rem;
+}
+
+.cert-group__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.cert-group__issuer {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.cert-group__list {
   list-style: none;
 }
 
-.certs li {
+.cert-item {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   gap: 1rem;
-  padding: 0.55rem 0;
-  border-bottom: 1px solid var(--rule);
-  font-size: 0.92rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--rule);
+  font-size: 0.9rem;
 }
 
-.certs li span:last-child {
+.cert-item:last-child {
+  border-bottom: 0;
+}
+
+.cert-item__title {
+  color: var(--ink);
+}
+
+.cert-item__date {
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   white-space: nowrap;
+}
+
+.cert__verify {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  padding: 0.22rem 0.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--paper-2);
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.cert__verify:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper);
+  transform: translateY(-1px);
 }
 
 .section--contact {
@@ -581,7 +636,7 @@ h2 {
   }
 
   main {
-    padding: 1.6rem max(1.1rem, env(safe-area-inset-right)) 5.5rem max(1.1rem, env(safe-area-inset-left));
+    padding: max(3.8rem, calc(env(safe-area-inset-top) + 2.8rem)) max(1.1rem, env(safe-area-inset-right)) 5.5rem max(1.1rem, env(safe-area-inset-left));
   }
 
   .hero,
@@ -619,13 +674,8 @@ h2 {
     white-space: normal;
   }
 
-  .certs li {
-    flex-direction: column;
-    gap: 0.2rem;
-  }
-
-  .certs li span:last-child {
-    white-space: normal;
+  .cert-item {
+    padding: 0.5rem 0;
   }
 
   .hero__actions .btn,
