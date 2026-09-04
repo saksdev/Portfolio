@@ -2,6 +2,7 @@ import './style.css'
 import {
     CORE,
     PERSONAL,
+    TYPED_ROLES,
     SOCIAL_LINKS,
     SKILLS,
     PROJECTS,
@@ -41,6 +42,10 @@ function renderProjects() {
             isRealUrl(project.codeUrl) ? `<a href="${esc(project.codeUrl)}" target="_blank" rel="noopener noreferrer">Code</a>` : '',
         ].filter(Boolean).join('<span class="sep" aria-hidden="true">/</span>')
 
+        const descContent = Array.isArray(project.desc)
+            ? `<ul class="work-item__points">${project.desc.map((line) => `<li>${esc(line)}</li>`).join('')}</ul>`
+            : `<p>${esc(project.desc)}</p>`
+
         return `
             <article class="work-item">
                 <div class="work-item__meta">
@@ -49,7 +54,7 @@ function renderProjects() {
                 </div>
                 <div class="work-item__body">
                     <h3>${esc(project.title)}</h3>
-                    <p>${esc(project.desc)}</p>
+                    ${descContent}
                     <ul class="tags">${tags}</ul>
                     ${links ? `<div class="work-item__links">${links}</div>` : ''}
                 </div>
@@ -62,12 +67,13 @@ function renderExperience() {
     return (EXPERIENCE || []).map((job) => {
         const points = (job.description || []).map((line) => `<li>${esc(line)}</li>`).join('')
         const tags = (job.tags || []).map((tag) => `<li>${esc(tag)}</li>`).join('')
+        const companyText = [job.company, job.location].filter(Boolean).join(' · ')
         return `
             <article class="job">
                 <header class="job__head">
                     <div>
                         <h3>${esc(job.role)}</h3>
-                        <p class="job__company">${esc(job.company)}</p>
+                        <p class="job__company">${esc(companyText)}</p>
                     </div>
                     <p class="job__when">${esc(job.duration)}${job.type ? ` · ${esc(job.type)}` : ''}</p>
                 </header>
@@ -78,12 +84,20 @@ function renderExperience() {
     }).join('')
 }
 
+const SKILL_GROUP_LABELS = {
+    languages: 'Languages',
+    web: 'Web Technologies',
+    databases: 'Databases',
+    tools: 'Tools & Platforms',
+    aiTools: 'AI & Developer Tools',
+}
+
 function renderSkills() {
     return Object.entries(SKILLS || {})
         .filter(([, items]) => items?.length)
         .map(([group, items]) => `
             <div class="stack-group">
-                <h3>${esc(group)}</h3>
+                <h3>${esc(SKILL_GROUP_LABELS[group] || group)}</h3>
                 <ul>${items.map((item) => `<li>${esc(item.label)}</li>`).join('')}</ul>
             </div>
         `).join('')
@@ -154,7 +168,7 @@ function render() {
 
             <main id="top">
                 <header class="hero">
-                    <p class="eyebrow">MERN · Full stack · ${esc(CORE.location)}</p>
+                    <p class="eyebrow">Software Engineer · MERN · Frontend · ${esc(CORE.location)}</p>
                     <h1>${esc(PERSONAL.name)}</h1>
                     <p class="lede">${esc(PERSONAL.tagline)}. I ship interfaces, APIs, and the glue between them — then keep going until the product actually works.</p>
                     <div class="hero__actions">
@@ -214,7 +228,7 @@ function render() {
                 <section id="contact" class="section section--contact">
                     <p class="eyebrow">Contact</p>
                     <h2>Let’s talk.</h2>
-                    <p class="lede">If you need a MERN developer who can own a feature from schema to UI, write.</p>
+                    <p class="lede">If you need a software engineer or MERN &amp; Frontend developer who can own a feature from schema to UI, write.</p>
                     <div class="hero__actions">
                         <a class="btn btn--wrap" href="mailto:${esc(CORE.email)}">${esc(CORE.email)}</a>
                         <a href="tel:${esc(CORE.phone.replace(/\s/g, ''))}">${esc(CORE.phone)}</a>
@@ -235,7 +249,6 @@ function render() {
         </button>
         <div class="menu-popup" id="menu-popup" role="dialog" aria-modal="true" aria-label="Menu" hidden>
             <button class="menu-popup__close" type="button">Close</button>
-            <p class="menu-popup__name">${esc(PERSONAL.shortName || PERSONAL.name)}</p>
             <nav class="menu-popup__nav">
                 ${navLinks}
             </nav>
@@ -276,21 +289,35 @@ async function loadProfileStats() {
 
 function watchNav() {
     const links = [...document.querySelectorAll('[data-nav-link]')]
-    const sections = [...new Set(
-        links.map((link) => document.querySelector(link.getAttribute('href'))).filter(Boolean)
-    )]
+    const sections = links
+        .map((link) => document.querySelector(link.getAttribute('href')))
+        .filter(Boolean)
 
-    const observer = new IntersectionObserver((entries) => {
-        const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-        if (!visible) return
+    function updateActive() {
+        const triggerPoint = window.innerHeight * 0.35
+        let currentSection = null
+
+        for (let i = sections.length - 1; i >= 0; i--) {
+            const rect = sections[i].getBoundingClientRect()
+            if (rect.top <= triggerPoint) {
+                currentSection = sections[i]
+                break
+            }
+        }
+
+        // If user is at or near the bottom of the page, activate the last section
+        if ((window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 60) {
+            currentSection = sections[sections.length - 1]
+        }
+
         links.forEach((link) => {
-            link.classList.toggle('is-active', link.getAttribute('href') === `#${visible.target.id}`)
+            link.classList.toggle('is-active', Boolean(currentSection && link.getAttribute('href') === `#${currentSection.id}`))
         })
-    }, { rootMargin: '-30% 0px -55% 0px', threshold: [0.1, 0.25, 0.5] })
+    }
 
-    sections.forEach((section) => observer.observe(section))
+    window.addEventListener('scroll', updateActive, { passive: true })
+    window.addEventListener('resize', updateActive, { passive: true })
+    updateActive()
 }
 
 function initMobileNav() {

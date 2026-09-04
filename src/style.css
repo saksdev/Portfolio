@@ -315,6 +315,17 @@ h2 {
   color: #3a342c;
 }
 
+.work-item__points {
+  padding-left: 1.1rem;
+  color: #3a342c;
+  max-width: 44rem;
+  margin-top: 0.45rem;
+}
+
+.work-item__points li + li {
+  margin-top: 0.35rem;
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;
@@ -724,31 +735,13 @@ h2 {
     clip: rect(0, 0, 0, 0);
   }
 
-  .menu-popup__name,
   .menu-popup__nav {
     width: 100%;
-    padding-left: 1.1rem;
-    padding-right: 1.1rem;
-    background: transparent;
-  }
-
-  .menu-popup__name {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    padding-top: 0.75rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--rule);
-    color: var(--muted);
-    opacity: 0.7;
-  }
-
-  .menu-popup__nav {
     display: flex;
     flex-direction: column;
     gap: 0;
-    padding: 0.35rem 1.1rem 0.75rem;
+    padding: 0.5rem 1.1rem;
+    background: transparent;
   }
 
   .menu-popup__nav a {

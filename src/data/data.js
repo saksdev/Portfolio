@@ -27,12 +27,12 @@ export const CORE = {
 export const PERSONAL = {
     name: 'SAKSHAM SHARMA',
     shortName: 'Saksham',
-    tagline: 'MERN Stack Developer & Problem Solver',
+    tagline: 'Software Engineer | MERN & Frontend Developer',
 
     bio: [
-        "MERN stack developer with hands-on experience building full-stack web applications using React.js, Node.js, Express.js, and MongoDB.",
-        "Skilled in developing responsive interfaces, REST APIs, authentication systems, and database integration.",
-        "Passionate about problem-solving, learning new technologies, and contributing to scalable software solutions."
+        "Full-Stack Developer (MERN) skilled in JavaScript, React.js, Node.js, and MongoDB, with hands-on experience building RESTful APIs and production-grade web applications.",
+        "Strong foundation in secure authentication, responsive UI development, and scalable full-stack architecture.",
+        "Passionate about building production-ready products, real-time web applications, and contributing to high-impact software solutions."
     ],
 
     details: [
@@ -43,9 +43,9 @@ export const PERSONAL = {
     ],
 
     chips: [
-        { icon: '⚡', text: 'Full Stack Dev' },
-        { icon: '🧠', text: 'Problem Solver' },
-        { icon: '🤖', text: 'MERN Stack' },
+        { icon: '💻', text: 'Software Engineer' },
+        { icon: '⚛️', text: 'Frontend & React' },
+        { icon: '⚡', text: 'MERN Stack' },
     ],
 
     available: true,
@@ -57,16 +57,16 @@ export const PERSONAL = {
 //    Typed subtitle roles + animated counter stats
 // ─────────────────────────────────────────────────────────────
 export const TYPED_ROLES = [
-    'Frontend Developer 🚀',
-    'MERN Stack Developer 💻',
-    'Full Stack Developer 🧠',
-    'Problem Solver 🤝',
+    'Software Engineer 💻',
+    'MERN Stack Developer 🚀',
+    'Frontend Developer ⚛️',
+    'Full-Stack Developer 🧠',
 ]
 
 export const HERO_STATS = [
-    { target: 10, label: 'Projects' },
+    { target: 3, label: 'Featured Projects' },
+    { target: 4, label: 'Certificates' },
     { target: 200, label: 'Problems Solved' },
-    { target: 3, label: 'Certifications' },
 ]
 
 // ─────────────────────────────────────────────────────────────
@@ -93,8 +93,9 @@ export const CONTACT_ITEMS = [
 export const SKILLS = {
     languages: [
         { label: 'JavaScript', abbr: 'JS', accent: '#f7df1e' },
-        { label: 'Python', abbr: 'Py', accent: '#3776ab' },
+        { label: 'TypeScript', abbr: 'TS', accent: '#3178c6' },
         { label: 'C', abbr: 'C', accent: '#a8b9cc' },
+        { label: 'Python', abbr: 'Py', accent: '#3776ab' },
         { label: 'C++', abbr: 'C++', accent: '#00599c' },
     ],
     web: [
@@ -104,44 +105,73 @@ export const SKILLS = {
         { label: 'HTML5', abbr: 'H5', accent: '#e34f26' },
         { label: 'CSS3', abbr: 'C3', accent: '#1572b6' },
         { label: 'Tailwind CSS', abbr: 'TW', accent: '#06b6d4' },
-        { label: 'REST API', abbr: 'API', accent: '#00bcd4' },
-        { label: 'JWT', abbr: 'JWT', accent: '#d63384' },
+        { label: 'REST APIs', abbr: 'API', accent: '#00bcd4' },
     ],
     databases: [
         { label: 'MongoDB', abbr: 'Mg', accent: '#47a248' },
         { label: 'Mongoose', abbr: 'Ms', accent: '#880000' },
-        { label: 'SQL (Basic)', abbr: 'SQ', accent: '#e38c00' },
+        { label: 'SQL', abbr: 'SQL', accent: '#e38c00' },
     ],
     tools: [
         { label: 'Git', abbr: 'Git', accent: '#f05032' },
         { label: 'GitHub', abbr: 'GH', accent: '#ffffff' },
         { label: 'Postman', abbr: 'Pm', accent: '#ff6c37' },
         { label: 'VS Code', abbr: 'VS', accent: '#007acc' },
+        { label: 'Vercel', abbr: 'Vc', accent: '#000000' },
+        { label: 'Netlify', abbr: 'Nf', accent: '#00c7b7' },
+    ],
+    aiTools: [
+        { label: 'Antigravity', abbr: 'AG', accent: '#4285f4' },
+        { label: 'ChatGPT', abbr: 'GPT', accent: '#10a37f' },
+        { label: 'Cursor', abbr: 'Cu', accent: '#000000' },
+        { label: 'Copilot', abbr: 'Cp', accent: '#6e40c9' },
+        { label: 'Claude', abbr: 'Cl', accent: '#d97706' },
+        { label: 'Qwen', abbr: 'Qw', accent: '#6366f1' },
     ],
 }
 
 // ─────────────────────────────────────────────────────────────
 // 5. PROJECTS
 //    cat: 'web' | 'ml' | 'mobile'  (filter categories)
-//    bg: CSS gradient for project thumbnail
 // ─────────────────────────────────────────────────────────────
 export const PROJECTS = [
     {
         id: 1, cat: 'web',
         index: '01',
-        kind: 'Full-stack product',
-        title: 'Fitness Quest',
-        tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'REST API'],
-        desc: 'A fitness tracker that plays like an RPG. Real-world workouts become quests, XP, and progress — with a responsive client and JWT-secured APIs behind it.',
-        demoUrl: '#', codeUrl: `https://github.com/${CORE.github}`, liveUrl: '#',
+        kind: 'Serverless Collaborative Editor',
+        title: 'DocSync',
+        tags: ['React.js', 'Next.js', 'TypeScript', 'TipTap', 'Yjs', 'WebRTC', 'Tailwind CSS'],
+        desc: [
+            'Built a serverless collaborative rich-text editor using Next.js, Yjs (CRDT), and WebRTC — zero backend required for real-time sync.',
+            'Configured WebRTC signaling and peer-to-peer UDP channels, eliminating centralized database dependency for live edits.',
+            'Supports concurrent multi-user editing with conflict-free document merging.',
+        ],
+        demoUrl: '#', codeUrl: `https://github.com/${CORE.github}/Real-Time-Collaboration`, liveUrl: '#',
     },
     {
         id: 2, cat: 'web',
         index: '02',
-        kind: 'Commerce platform',
+        kind: 'Full-stack RPG & Activity Tracker',
+        title: 'Fitness Quest',
+        tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'REST APIs'],
+        desc: [
+            'Built a full-stack fitness RPG with real-time activity tracking, XP progression, and leaderboard features.',
+            'Integrated 3rd-party fitness APIs with MongoDB for persistent user progress and synchronization.',
+            'Designed secure REST APIs for user data management with JWT auth and role-based access.',
+        ],
+        demoUrl: '#', codeUrl: `https://github.com/${CORE.github}/Fitness-Quest-RPG`, liveUrl: '#',
+    },
+    {
+        id: 3, cat: 'web',
+        index: '03',
+        kind: 'MERN E-Commerce Platform',
         title: 'DigiMart',
-        tags: ['React.js', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB'],
-        desc: 'An e-commerce stack for digital goods: catalog, orders, users, and secure downloads — wired through REST APIs and MongoDB.',
+        tags: ['React.js', 'Vite', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
+        desc: [
+            'Built a MERN e-commerce platform supporting secure digital product delivery.',
+            'Developed 6+ REST APIs for user auth, product listing, and purchase flow using Node.js and Express.js.',
+            'Achieved fully responsive UI using React.js, Vite, and Tailwind CSS across mobile and desktop.',
+        ],
         demoUrl: '#', codeUrl: `https://github.com/${CORE.github}/DigiMart`, liveUrl: '#',
     },
 ]
@@ -156,9 +186,10 @@ export const PROJECT_FILTERS = [
 //    Empty array → section hidden. viewUrl: '' hides link.
 // ─────────────────────────────────────────────────────────────
 export const CERTIFICATES = [
-    { abbr: 'JS', col: '#f7df1e', title: 'JavaScript (Basic)', issuer: 'HackerRank', date: '2024', badge: '✅ Verified', gold: true, viewUrl: '#' },
-    { abbr: 'PY', col: '#3776ab', title: 'Python (Basic)', issuer: 'HackerRank', date: '2024', badge: '✅ Verified', gold: true, viewUrl: '#' },
+    { abbr: 'SE', col: '#10b981', title: 'Software Engineer Intern', issuer: 'Hoping Minds – Katina Skills', date: '2024', badge: '✅ Verified', gold: true, viewUrl: '#' },
+    { abbr: 'JS', col: '#f7df1e', title: 'JavaScript (Intermediate)', issuer: 'HackerRank', date: '2024', badge: '✅ Verified', gold: true, viewUrl: '#' },
     { abbr: 'RE', col: '#61dafb', title: 'React (Basic)', issuer: 'HackerRank', date: '2024', badge: '✅ Verified', gold: true, viewUrl: '#' },
+    { abbr: 'SQ', col: '#e38c00', title: 'SQL (Basic)', issuer: 'HackerRank', date: '2024', badge: '✅ Verified', gold: true, viewUrl: '#' },
 ]
 
 // ─────────────────────────────────────────────────────────────
@@ -176,16 +207,19 @@ export const EDUCATION = [
 // ─────────────────────────────────────────────────────────────
 export const EXPERIENCE = [
     {
-        role: 'Full-Stack Developer Intern (MERN Stack)', company: 'Katina Skills Pvt. Ltd',
-        duration: '01/2024 - 07/2024', type: 'Internship', emoji: '💻',
+        role: 'Full-Stack Development Intern (MERN Stack)',
+        company: 'Hoping Minds – Katina Skills Pvt. Ltd.',
+        location: 'Mohali, India',
+        duration: 'Jan 2024 – Jul 2024',
+        type: 'Internship',
+        emoji: '💻',
         description: [
-            'Developed scalable full-stack applications using MongoDB, Express.js, React.js, and Node.js.',
-            'Built RESTful APIs and integrated frontend with backend services.',
-            'Implemented JWT authentication and secure user authorization.',
-            'Created responsive and reusable UI components using React.js.',
-            'Used Git for version control, testing, debugging, and collaboration.',
+            'Architected scalable full-stack applications using MongoDB, Express.js, React.js, and Node.js.',
+            'Designed and built RESTful APIs for secure client-server communication.',
+            'Implemented JWT authentication and integrated frontend with backend services.',
+            'Used Git/Github for version control, testing, debugging, and collaboration.',
         ],
-        tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Git'],
+        tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs', 'JWT', 'Git', 'GitHub'],
     },
 ]
 
@@ -197,12 +231,12 @@ export const USERNAMES = {
     github: CORE.github,
     leetcode: 'saksdev',
     codeforces: 'sakshams346',
-    hackerrank: 'sakshams346',
+    hackerrank: 'SakshamSharmaDev',
 }
 
 export const PLATFORMS = {
     github: { abbr: 'GH', name: 'GitHub', logoClass: 'gh', url: `https://github.com/${CORE.github}`, live: true },
     leetcode: { abbr: 'LC', name: 'LeetCode', logoClass: 'lc', url: `https://leetcode.com/${USERNAMES.leetcode}`, live: true },
     codeforces: { abbr: 'CF', name: 'Codeforces', logoClass: 'cf', url: `https://codeforces.com/profile/${USERNAMES.codeforces}`, live: true },
-    hackerrank: { abbr: 'HR', name: 'HackerRank', logoClass: 'hr', url: `https://hackerrank.com/${USERNAMES.hackerrank}`, live: false },
+    hackerrank: { abbr: 'HR', name: 'HackerRank', logoClass: 'hr', url: `https://www.hackerrank.com/profile/${USERNAMES.hackerrank}`, live: false },
 }
